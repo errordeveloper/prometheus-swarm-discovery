@@ -2,7 +2,7 @@ version: '3'
 
 services:
   swarm-discover:
-    image: seqvence/prometheus-swarm
+    image: errordeveloper/prometheus-swarm
     command: ["-i", "5", "-o", "/swarm-endpoints/swarm-endpoints.json", "-p" , "prometheus_prometheus"]
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
@@ -25,6 +25,5 @@ services:
       placement:
         constraints:
           - node.role == manager
-
 volumes:
   swarm-endpoints:
